@@ -42,7 +42,6 @@ nav {
   background-color: rgb(31, 21, 21);
   color: white;
   font-weight: 600;
-  /* align-items: center; */
   transition: all 0.3s ease-in-out;
   position: fixed;
   width: 7rem;
@@ -134,7 +133,6 @@ a {
   text-decoration: none;
   color: white;
 }
-
 
 @media only screen and (min-width: 768px) {
   body {
