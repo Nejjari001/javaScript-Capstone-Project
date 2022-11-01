@@ -1,0 +1,199 @@
+/* Google font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* page reset styles */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-mont: 'Montserrat', sans-serif;
+  --clr-dark: #fff, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0.2rem;
+  gap: 2rem;
+  background-color: rgb(31, 21, 21);
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  position: fixed;
+  width: 7rem;
+  left: -7rem;
+  height: 100%;
+  z-index: 1;
+}
+
+.nav__item {
+  width: max-content;
+}
+
+.open {
+  left: 0;
+}
+
+.hamburger {
+  position: absolute;
+  top: 1rem;
+  right: -2.5rem;
+}
+
+.hamburger:hover {
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  background-color: black;
+  margin: 0.4rem 0;
+  height: 0.4rem;
+  width: 2.1rem;
+  border-radius: 0.15rem;
+  transition: 0.3s all ease-in-out;
+  position: relative;
+}
+
+.change.first-bar {
+  top: 0.8rem;
+  transform: rotate(45deg);
+}
+
+.change.second-bar {
+  opacity: 0;
+}
+
+.change.third-bar {
+  bottom: 0.755rem;
+  transform: rotate(-45deg);
+}
+
+.brand__name b {
+  font-size: 1.5rem;
+}
+
+.item_number {
+  border-radius: 50%;
+  background-color: white;
+  color: red;
+  padding: 0.1rem 0.5rem;
+  position: absolute;
+  margin-top: -1.2rem;
+  margin-left: 2rem;
+}
+
+.nav__menu {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin-left: 1rem;
+}
+
+li {
+  list-style: none;
+}
+
+.nav__menu li {
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border 0.3s ease-in-out;
+}
+
+.nav__menu li:hover {
+  cursor: pointer;
+  border-bottom: 2px solid white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    position: static;
+    width: 100vw;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .nav__menu {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+  }
+
+  .foods__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .food__item {
+    width: 40vw;
+  }
+
+  .shift .food__item {
+    margin-left: 0;
+    width: 40vw;
+  }
+
+  img {
+    width: 25vw;
+    height: 40vw;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .foods__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .food__item {
+    width: 20vw;
+  }
+
+  .shift .food__item {
+    width: 20vw;
+  }
+
+  img {
+    width: 12.5vw;
+    height: 20vw;
+  }
+}
