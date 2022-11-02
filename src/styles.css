@@ -195,6 +195,18 @@ a {
   box-shadow: 2px 2px 2px 0px;
 }
 
+footer {
+  border: 2px solid black;
+  bottom: 25px;
+  left: 60px;
+  width: 90%;
+  border-radius: 10px;
+  height: 50px;
+  margin: 1rem auto;
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
 @media only screen and (min-width: 768px) {
   body {
     overflow-x: hidden;
