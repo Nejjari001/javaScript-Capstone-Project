@@ -1,6 +1,6 @@
 import getLikes, { addLikes } from '../modules/likes.js';
 import render from '../modules/render.js';
-import '../src/styles.css';
+import './styles.css';
 
 const element = document.querySelector('#container');
 const mealUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php';

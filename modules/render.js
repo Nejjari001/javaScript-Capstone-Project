@@ -1,7 +1,7 @@
 const render = (data, element) => {
-    element.innerHTML = '';
-    data.forEach((cat) => {
-      element.innerHTML += `
+  element.innerHTML = '';
+  data.forEach((cat) => {
+    element.innerHTML += `
         <div id="${cat.idCategory}" class="card-a">
         <img src="${cat.strCategoryThumb}" alt="Picture">
           <div class="space-like">
@@ -18,6 +18,6 @@ const render = (data, element) => {
           </div>
           </div>
           `;
-    });
-  };
-  export default render;
+  });
+};
+export default render;

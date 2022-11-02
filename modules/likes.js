@@ -1,5 +1,4 @@
-const apiUrl =
-  'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
+const apiUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 const apiKey = 'eJ0dYt3woHnL6Sz1FyVG';
 const getLikes = async () => {
   const res = await fetch(`${apiUrl}/${apiKey}/likes`);
@@ -16,7 +15,7 @@ export const addLikes = async (id) => {
       body: JSON.stringify({
         item_id: id,
       }),
-    }
+    },
   );
 };
 // https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/eJ0dYt3woHnL6Sz1FyVG/likes
