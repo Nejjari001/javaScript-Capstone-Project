@@ -198,6 +198,7 @@ a {
 .reserve,
 .comment {
   height: 2rem;
+  cursor: pointer;
 }
 
 .reserve:hover,

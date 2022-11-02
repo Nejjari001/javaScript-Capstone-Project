@@ -1,3 +1,5 @@
+import popupWinShow from './popup.js';
+
 const render = (data, element) => {
   element.innerHTML = '';
   data.forEach((cat) => {
@@ -19,5 +21,13 @@ const render = (data, element) => {
           </div>
           `;
   });
+  const commentBtn = Array.from(document.querySelectorAll('.comment'));
+  commentBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      popupWinShow(btn.id);
+    });
+  });
 };
+
+// popupWinShow();
 export default render;

@@ -1,5 +1,6 @@
 import getLikes, { addLikes } from '../modules/likes.js';
 import render from '../modules/render.js';
+// import popupWinShow from '../modules/popup.js';
 import './styles.css';
 
 const element = document.querySelector('#container');
@@ -33,3 +34,12 @@ window.onload = async () => {
     });
   });
 };
+
+// const commentBtn = Array.from(document.querySelectorAll('#comment'));
+// commentBtn.forEach((btn) => {
+//   btn.addEventListener('click', () => {
+//     popupWinShow(btn.id);
+//   });
+// });
+
+// popupWinShow();
