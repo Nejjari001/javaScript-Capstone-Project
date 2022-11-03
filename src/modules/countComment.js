@@ -1,4 +1,4 @@
-const commentCounter = () => {
+const commentsCounters = () => {
   const counter = [];
   let totalCount = 0;
   const commentConnter = document.querySelectorAll('.post__comment');
@@ -11,4 +11,4 @@ const commentCounter = () => {
     postCount.innerHTML = `(${totalCount})`;
   });
 };
-export default commentCounter;
+export default commentsCounters;
