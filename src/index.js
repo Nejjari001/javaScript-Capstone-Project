@@ -1,6 +1,6 @@
 import './styles.css';
 import renderLikes from './modules/renderLikes.js';
-import itemsCounter from './modules/itemsCounter.js';
+import itemsCounter from './modules/allItemsCounter.js';
 import addLikes from './modules/addLikes.js';
 import renderFoodItems from './modules/renderFoodItems.js';
 
