@@ -2,8 +2,8 @@ import './popup.css';
 
 const popupWin = document.getElementById('popup-window');
 
-const getfood = async () => {
-  const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+const getfood = async (category) => {
+  const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`;
   fetch(url)
     .then((response) => response.json())
     .then((cat) => {
@@ -34,6 +34,12 @@ const getfood = async () => {
                         </ul
                     </div>
                 </div>
+                <form class="comment-form">
+                    <h2 class"comment-header">Add a Comment<h2>
+                    <input type="text" palceholder="Enter Your Name" id="commenter-name">
+                    <textarea placeholder="Your Insights"></textarea>
+                    <button type="submit">Comment</button>
+                </form>
             </div>
         </div>
             `;
