@@ -173,10 +173,6 @@ img {
   transition: 0.3s all ease-in-out;
 }
 
-img:hover {
-  transform: scale(1.05);
-}
-
 .food__icon {
   width: 100%;
   align-items: center;
@@ -276,17 +272,19 @@ button:active {
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 20px;
   padding: 1rem 0;
+  gap: 10px;
 }
 
 .model__item {
   font-family: var(--font-mont);
   font-size: 15px;
   font-weight: 300;
-  color: rgb(158, 158, 158);
+  color: rgb(255, 253, 253);
+  flex: 1;
 }
 
 .span__content {
-  color: rgb(84, 84, 84);
+  color: rgb(0, 0, 0);
   font-weight: 400;
 }
 
@@ -295,7 +293,7 @@ footer a {
 }
 
 .span__content a {
-  color: rgb(84, 84, 84);
+  color: rgb(0, 0, 0);
 }
 
 .span__content a:hover {
@@ -332,7 +330,7 @@ footer a {
 .form__title {
   font-family: var(--font-mont);
   text-align: center;
-  color: rgb(134, 134, 134);
+  color: rgb(216, 189, 189);
   font-weight: 500;
 }
 
@@ -348,7 +346,7 @@ footer a {
 .post__comment__title {
   font-family: var(--font-mont);
   font-weight: 400;
-  color: rgb(134, 134, 134);
+  color: rgb(255, 255, 255);
   text-align: center;
 }
 
@@ -376,6 +374,13 @@ footer a {
 .input__field {
   padding: 0.5rem;
   font-family: var(--font-mont);
+  border-radius: 10px;
+  border: none;
+}
+
+.input__field:focus {
+  outline: none;
+  border-radius: 10px;
 }
 
 .form__btn {
@@ -426,11 +431,10 @@ footer {
   top: 200%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 32rem;
+  width: 90%;
   height: 90vh;
   border-radius: 1rem;
-  background-color: rgb(241, 232, 232);
+  background-color: rgb(158, 85, 85);
   transition: 0.3s all ease-in-out;
   padding: 1rem;
   overflow-y: scroll;
