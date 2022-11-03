@@ -50,6 +50,3 @@ const render = (data, element) => {
   //   });
   // });
 };
-
-// popupWinShow();
-export default render;

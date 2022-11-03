@@ -1,5 +1,3 @@
-import './popup.css';
-
 const popupWin = document.getElementById('popup-window');
 
 const getfood = async (category) => {
@@ -59,5 +57,3 @@ const popupWinShow = (id) => {
     getfood(id);
   }
 };
-
-export default popupWinShow;
