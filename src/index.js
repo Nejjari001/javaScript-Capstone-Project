@@ -1,35 +1,96 @@
-import getLikes, { addLikes } from '../modules/likes.js';
-import render from '../modules/render.js';
 import './styles.css';
+import renderLikes from './modules/renderLikes.js';
+import itemsCounter from './modules/itemsCounter.js';
+import addLikes from './modules/addLikes.js';
+import renderFoodItems from './modules/renderFoodItems.js';
 
-const element = document.querySelector('#container');
-const mealUrl = 'https://www.themealdb.com/api/json/v1/1/categories.php';
+import displayPop from './modules/displayPop.js';
 
-const fetchData = async (url) => {
-  const res = await fetch(url);
-  const data = await res.json();
-  const likes = await getLikes();
-  const storage = [];
-  data.categories.forEach((item) => {
-    storage.push({
-      ...(likes.find((innerItem) => innerItem.item_id.toString() === item.idCategory.toString())),
-      ...item,
+import postComment from './modules/postComment.js';
+
+const bodyEl = document.querySelector('body');
+const foodContainerEl = document.querySelector('main');
+const hamburgerEl = document.querySelector('.hamburger');
+const navEl = document.querySelector('nav');
+const barsEl = document.getElementsByClassName('bar');
+const itemsNumberEl = document.querySelector('.item_number');
+
+itemsNumberEl.innerHTML = itemsCounter();
+
+const toggleNav = () => {
+  hamburgerEl.addEventListener('click', () => {
+    navEl.classList.toggle('open');
+    [...barsEl].forEach((item) => {
+      item.classList.toggle('change');
     });
-  });
-  return storage;
-};
-
-window.onload = async () => {
-  const storage = await fetchData(mealUrl);
-  render(storage, element);
-  const likeButtons = document.querySelectorAll('.fa-heart');
-  const likeBtns = Array.from(likeButtons);
-  likeBtns.forEach((btn) => {
-    btn.addEventListener('click', async (e) => {
-      const likeContainer = e.target.parentNode.parentNode.querySelector('.show');
-      await addLikes(e.target.id);
-      const newVal = +likeContainer.innerHTML + 1;
-      likeContainer.innerHTML = newVal;
-    });
+    foodContainerEl.classList.toggle('shift');
   });
 };
+const model = document.querySelector('.model');
+const pop = document.querySelector('.pop-windo');
+
+foodContainerEl.addEventListener('click', async (e) => {
+  if (e.target.className === 'icon__like') {
+    await addLikes(e.target.parentNode.id);
+    renderLikes();
+  } else if (e.target.className === 'pop-window') {
+    const { id } = e.target.parentNode.childNodes[1].childNodes[3];
+    displayPop(id);
+
+    setTimeout(() => {
+      pop.classList.add('slide');
+    }, 100);
+
+    model.style.display = 'block';
+
+    pop.addEventListener('click', (e) => {
+      if (e.target.className === 'chat') {
+        e.preventDefault();
+        let username = document.querySelector('input').value;
+        let comment = document.querySelector('textarea').value;
+        const successMsg = document.querySelector('.success');
+        const dangerMsg = document.querySelector('.danger');
+
+        if (username === '' || comment === '') {
+          dangerMsg.style.display = 'block';
+          setTimeout(() => {
+            dangerMsg.style.display = 'none';
+          }, 1500);
+          return;
+        }
+
+        const { id } = e.target.parentNode.parentNode;
+        const commentObj = {
+          item_id: id,
+          comment,
+          username,
+        };
+        postComment(commentObj);
+
+        document.querySelector('input').value = '';
+        document.querySelector('textarea').value = '';
+
+        successMsg.style.display = 'block';
+
+        setTimeout(() => {
+          dangerMsg.style.display = 'none';
+          successMsg.style.display = 'none';
+          username = '';
+          comment = '';
+        }, 1000);
+      }
+    });
+
+    bodyEl.addEventListener('click', (e) => {
+      if (e.target.className === 'x__btn' || e.target.className === 'model') {
+        pop.classList.remove('slide');
+        setTimeout(() => {
+          model.style.display = 'none';
+        }, 400);
+      }
+    });
+  }
+});
+
+renderFoodItems();
+toggleNav();
